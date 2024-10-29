@@ -28,6 +28,8 @@ return {
         "vimdoc",
         "yaml",
       },
+      -- Autoinstall languages that are not installed
+      auto_install = true,
       config = function(_, opts)
         require("nvim-treesitter.configs").setup(opts)
 
@@ -40,12 +42,5 @@ return {
         vim.treesitter.language.register("markdown", "mdx")
       end,
     },
-  },
-  {
-    "nvim-treesitter/playground",
-  },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    enabled = false,
   },
 }

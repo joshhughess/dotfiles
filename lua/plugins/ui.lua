@@ -12,17 +12,6 @@ return {
     enabled = false,
   },
   {
-    "j-hui/fidget.nvim",
-    opts = {
-      notification = {
-        window = {
-          winblend = 0,
-          border = "rounded",
-        },
-      },
-    },
-  },
-  {
     "rcarriga/nvim-notify",
     opts = {
       timeout = 500,
@@ -65,17 +54,5 @@ return {
         end,
       })
     end,
-  },
-
-  -- bufferline
-  {
-    "akinsho/bufferline.nvim",
-    opts = {
-      options = {
-        mode = "tabs",
-        show_buffer_close_icons = false,
-        show_close_icon = false,
-      },
-    },
   },
 }
