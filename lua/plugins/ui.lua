@@ -8,10 +8,6 @@ return {
     },
   },
   {
-    "folke/noice.nvim",
-    enabled = false,
-  },
-  {
     "rcarriga/nvim-notify",
     opts = {
       timeout = 500,

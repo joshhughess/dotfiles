@@ -20,8 +20,9 @@ return {
     })
 
     local sources = {
-      formatting.prettier.with({ filetypes = { "html", "json", "yaml", "markdown" } }),
+      formatting.prettier,
       formatting.stylua,
+      require("none-ls.diagnostics.eslint_d"),
     }
 
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
