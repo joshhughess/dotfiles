@@ -14,9 +14,6 @@ vim.keymap.set("n", "<C-s>", "<cmd> w <CR>", opts)
 -- save file without auto-formatting
 vim.keymap.set("n", "<leader>sn", "<cmd>noautocmd w <CR>", opts)
 
--- quit file and/or close curent window
-vim.keymap.set("n", "<C-q>", "<cmd> q <CR>", opts)
-
 -- delete single character without copying into register
 vim.keymap.set("n", "x", '"_x', opts)
 
@@ -40,9 +37,9 @@ vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
 vim.keymap.set("n", "<leader>xb", ":Bdelete!<CR>", opts) -- close buffer
 
 -- Window management
-vim.keymap.set("n", "<leader>v", "<C-w>v", opts) -- split window vertically
+vim.keymap.set("n", "<leader>v", "<C-w>v", opts)                          -- split window vertically
 vim.keymap.set("n", "<leader>h", "<C-w>s", { desc = "horizontal split" }) -- split window horizontally
-vim.keymap.set("n", "<leader>se", "<C-w>=", opts) -- make split windows equal width & height
+vim.keymap.set("n", "<leader>se", "<C-w>=", opts)                         -- make split windows equal width & height
 
 -- Navigate between splits
 vim.keymap.set("n", "<C-k>", ":wincmd k<CR>", opts)

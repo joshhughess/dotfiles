@@ -5,7 +5,20 @@ return {
     "nvim-lua/plenary.nvim",
   },
   config = function()
-    require("telescope").setup({})
+    require("telescope").setup({
+      defaults = {
+        mappings = {
+          i = {
+            ["<C-q>"] = function(prompt_bufnr)
+              local actions = require("telescope.actions")
+              local builtin = require("telescope.builtin")
+              actions.send_to_qflist(prompt_bufnr)
+              builtin.quickfix()
+            end,
+          },
+        },
+      },
+    })
 
     local builtin = require("telescope.builtin")
     vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
