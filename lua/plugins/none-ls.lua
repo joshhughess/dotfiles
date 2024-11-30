@@ -22,12 +22,11 @@ return {
     local sources = {
       formatting.prettier,
       formatting.stylua,
-      require("none-ls.diagnostics.eslint_d"),
     }
 
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
     null_ls.setup({
-      -- debug = true, -- Enable debug mode. Inspect logs with :NullLsLog.
+      debug = true, -- Enable debug mode. Inspect logs with :NullLsLog.
       sources = sources,
       -- you can reuse a shared lspconfig on_attach callback here
       on_attach = function(client, bufnr)

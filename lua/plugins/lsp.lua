@@ -24,6 +24,7 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls",
+        "volar",
       },
     })
 
@@ -49,9 +50,14 @@ return {
       capabilities = capabilities,
     })
 
+    lspconfig.vuels.setup({
+      capabilities = capabilities,
+    })
+
     lspconfig.tailwindcss.setup({
       capabilities = capabilities,
     })
+
     vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 
@@ -66,8 +72,7 @@ return {
       mapping = cmp.mapping.preset.insert({
         ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
         ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-        ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<Tab>"] = cmp.mapping.confirm({ select = true }),
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },

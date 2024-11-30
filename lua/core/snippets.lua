@@ -30,3 +30,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   group = highlight_group,
   pattern = "*",
 })
+
+vim.cmd([[
+augroup qf
+    autocmd!
+    autocmd FileType qf set nobuflisted
+augroup END
+]])
