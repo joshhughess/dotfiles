@@ -17,7 +17,7 @@ return {
     local cmp = require("cmp")
     local cmp_lsp = require("cmp_nvim_lsp")
     local capabilities =
-        vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), cmp_lsp.default_capabilities())
+      vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), cmp_lsp.default_capabilities())
 
     require("fidget").setup({})
     require("mason").setup()
@@ -42,10 +42,6 @@ return {
       capabilities = capabilities,
     })
 
-    lspconfig.gopls.setup({
-      capabilities = capabilities,
-    })
-
     lspconfig.volar.setup({
       capabilities = capabilities,
     })
@@ -54,12 +50,31 @@ return {
       capabilities = capabilities,
     })
 
+    lspconfig.omnisharp.setup({
+      capabilities = capabilities,
+      enableRoslynAnalyzers = true,
+      settings = {
+        RoslynExtensionsOptions = {
+          -- Enables support for roslyn analyzers, code fixes and rulesets.
+          EnableAnalyzersSupport = true,
+        },
+      },
+    })
+
     lspconfig.tailwindcss.setup({
       capabilities = capabilities,
+      settings = {
+        tailwindCSS = {
+          lint = {
+            invalidApply = "ignore",
+          },
+        },
+      },
     })
 
     vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+    vim.keymap.set("n", "gca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
 

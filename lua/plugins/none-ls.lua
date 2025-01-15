@@ -12,8 +12,9 @@ return {
     require("mason-null-ls").setup({
       ensure_installed = {
         "prettier", -- ts/js formatter
-        "stylua",   -- lua formatter
+        "stylua", -- lua formatter
         "eslint_d", -- ts/js linter
+        "csharpier",
       },
       automatic_installation = true,
     })
@@ -21,10 +22,11 @@ return {
     local sources = {
       formatting.stylua,
       formatting.prettier.with({
-        extra_filetypes = { "html", "css", "json" },             -- Add any specific filetypes you want Prettier to handle
+        extra_filetypes = { "html", "css", "json" }, -- Add any specific filetypes you want Prettier to handle
         extra_args = { "--single-quote", "--jsx-single-quote" }, -- Example: Add your preferred prettier config here
       }),
       require("none-ls.diagnostics.eslint_d"),
+      formatting.csharpier,
     }
 
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
