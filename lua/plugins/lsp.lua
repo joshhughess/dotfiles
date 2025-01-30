@@ -42,8 +42,40 @@ return {
       capabilities = capabilities,
     })
 
+    lspconfig.cssls.setup({
+      capabilities = capabilities,
+      settings = {
+        css = {
+          validate = true,
+          lint = {
+            unknownAtRules = "ignore",
+          },
+        },
+        scss = {
+          validate = true,
+          lint = {
+            unknownAtRules = "ignore",
+          },
+        },
+      },
+    })
+
     lspconfig.volar.setup({
       capabilities = capabilities,
+      settings = {
+        css = {
+          validate = true,
+          lint = {
+            unknownAtRules = "ignore",
+          },
+        },
+        scss = {
+          validate = true,
+          lint = {
+            unknownAtRules = "ignore",
+          },
+        },
+      },
     })
 
     lspconfig.vuels.setup({
@@ -55,8 +87,9 @@ return {
       enableRoslynAnalyzers = true,
       settings = {
         RoslynExtensionsOptions = {
-          -- Enables support for roslyn analyzers, code fixes and rulesets.
-          EnableAnalyzersSupport = true,
+          enableDecompilationSupport = true,
+          enableImportCompletion = true,
+          enableAnalyzersSupport = true,
         },
       },
     })
@@ -66,15 +99,15 @@ return {
       settings = {
         tailwindCSS = {
           lint = {
-            invalidApply = "ignore",
+            invalidApply = false,
           },
         },
       },
     })
 
     vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-    vim.keymap.set("n", "gca", vim.lsp.buf.code_action, { desc = "Code Action" })
+    vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
