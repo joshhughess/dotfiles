@@ -3,6 +3,7 @@ return {
   opts = {
     picker = {},
     explorer = {},
+    lazygit = {},
   },
   keys = {
     -- Top Pickers & Explorer
@@ -92,6 +93,13 @@ return {
       desc = "Recent",
     },
     -- git
+    {
+      "<leader>gg",
+      function()
+        Snacks.lazygit()
+      end,
+      desc = "Lazygit",
+    },
     {
       "<leader>gb",
       function()
