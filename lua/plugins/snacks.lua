@@ -4,6 +4,7 @@ return {
     explorer = {},
     indent = {},
     lazygit = {},
+    scope = {},
     picker = {},
   },
   keys = {
