@@ -3,10 +3,6 @@ return {
   config = function()
     local mode = {
       "mode",
-      fmt = function(str)
-        return " " .. str
-        -- return ' ' .. str:sub(1, 1) -- displays only the first character of the mode
-      end,
     }
 
     local filename = {
@@ -68,5 +64,5 @@ return {
       tabline = {},
       extensions = { "fugitive" },
     })
-  end,
+  end
 }

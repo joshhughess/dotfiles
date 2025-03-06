@@ -5,6 +5,5 @@ return {
     require("trouble").setup({})
     vim.keymap.set("n", "<leader>tw", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Workspace Diagnostics" })
     vim.keymap.set("n", "<leader>td", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Document Diagnostics" })
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Show Code Actions" })
   end,
 }
